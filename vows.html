@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>My Eternal Vows</title>
+<style>
+  body{margin:0;background:#0a001a;color:#ff9ed4;text-align:center;padding:50px;min-height:100vh;background:radial-gradient(circle at center,#2d1b69,#000);}
+  h1{font-size:6rem;font-family:'Great Vibes',cursive;color:#ff4081;text-shadow:0 0 60px #ff1744;margin:40px;}
+  .vow{font-size:2rem;max-width:900px;margin:50px auto;line-height:2.5;opacity:0;transform:translateY(40px);transition:2s;}
+  .vow.show{opacity:1;transform:translateY(0);}
+  .meter{width:80%;max-width:600px;height:50px;background:#333;margin:60px auto;border-radius:30px;overflow:hidden;box-shadow:0 0 40px #ff4081;}
+  .fill{height:100%;width:0;background:linear-gradient(90deg,#ff4081,#ff1744);animation:fill 7s forwards;}
+  @keyframes fill{to{width:100%}}
+  #countdown{font-size:4rem;color:#ff4081;margin:50px;font-weight:bold;}
+  input,button{padding:18px;font-size:1.4rem;border-radius:30px;border:none;margin:10px;}
+  button{background:#ff4081;color:white;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<h1>My Vows to Mrs. Evans</h1>
+<div class="vow">I vow to love you more every single day until my last breath.</div>
+<div class="vow">أقسم بالله العظيم أن أكون لكِ وحدكِ إلى الأبد</div>
+<div class="vow">You are my home, my peace, my paradise.</div>
+<div class="vow">Distance means nothing when someone means everything.</div>
+<div class="vow">Soon I will put the ring on your finger in front of the whole world.</div>
+
+<div class="meter"><div class="fill"></div></div>
+<p style="font-size:2.5rem;">My love for you = ∞ %</p>
+
+<div id="countdown">Loading…</div>
+<p>Until I hold my wife again</p>
+
+<div style="margin:80px;">
+  <p style="font-size:2rem;">Type the magic words to see my secret letter</p>
+  <input type="text" id="pass" placeholder="Mrs Evans or نورحان إيفانز">
+  <button onclick="if(['Mrs Evans','نورحان إيفانز','nourhan evans'].includes(document.getElementById('pass').value.trim()))location='secret.html';else alert('Try again habibti')">Open Secret</button>
+</div>
+
+<a href="index.html" style="position:fixed;bottom:30px;left:left:30px;color:white;font-size:1.5rem;">Back</a>
+
+<script>
+document.querySelectorAll('.vow').forEach((e,i)=>setTimeout(()=>e.classList.add('show'),i*1000));
+
+const reunionDate = new Date("2025-12-25T00:00:00"); // CHANGE THIS DATE TO YOUR REAL REUNION
+function update(){const d=new Date(reunionDate-new Date());const days=Math.floor(d/(1000*60*60*24));const hrs=Math.floor((d%(1000*60*60*24))/(1000*60*60));document.getElementById('countdown').innerText=`\( {days} days \){hrs} hours`;}
+setInterval(update,3600000);update();
+</script>
+</body>
+</html>

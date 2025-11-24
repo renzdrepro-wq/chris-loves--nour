@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>Our Memories</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:linear-gradient(45deg,#ffecd2,#fcb69f);color:#5d001e;text-align:center;padding:40px;min-height:100vh;}
+  h1{font-family:'Dancing Script';font-size:5rem;color:#c51162;margin-bottom:50px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;max-width:1300px;margin:auto;}
+  .card{background:white;padding:20px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,0.2);transition:0.5s;cursor:pointer;}
+  .card:hover{transform:translateY(-20px) scale(1.05);box-shadow:0 30px 60px rgba(255,65,129,0.5);}
+  .card img{width:100%;height:380px;object-fit:cover;border-radius:15px;}
+  .caption{font-size:1.6rem;margin:20px 0;font-weight:bold;}
+  .arabic{font-family:'Scheherazade New';font-size:2rem;direction:rtl;color:#ad1457;}
+  .sparkle{position:absolute;pointer-events:none;font-size:40px;animation:spark 1.2s forwards;}
+  @keyframes spark{0%{opacity:1;transform:scale(0)}100%{opacity:0;transform:scale(3)}}
+  .nav{position:fixed;bottom:30px;width:100%;text-align:center;}
+  .nav a{margin:0 20px;padding:15px 40px;background:#c51162;color:white;border-radius:50px;text-decoration:none;font-size:1.3rem;}
+</style>
+<body>
+
+<h1>Every Moment With You Is Magic</h1>
+<div class="grid">
+  <div class="card" onclick="spark(this)"><img src="https://i.imgur.com/3tZ9p0K.jpg"><div class="caption">When you do that cute finger heart</div><div class="arabic">بحبك أكتر من الكلام</div></div>
+  <div class="card" onclick="spark(this)"><img src="https://i.imgur.com/J8kL9mP.jpg"><div class="caption">Your smile lights up my whole world</div><div class="arabic">ضحكتك جنة</div></div>
+  <div class="card" onclick="spark(this)"><img src="https://i.imgur.com/r9pV2sX.jpg"><div class="caption">Me smiling like an idiot because of you</div><div class="arabic">أنتِ سبب ابتسامتي</div></div>
+  <div class="card" onclick="spark(this)"><img src="https://i.imgur.com/5mN7xL2.jpg"><div class="caption">You being the most beautiful girl alive</div><div class="arabic">أجمل بنت في الكون</div></div>
+  <div class="card" onclick="spark(this)"><img src="https://i.imgur.com/X7vB9pQ.jpg"><div class="caption">Mirror selfies thinking of each other</div><div class="arabic">نفسي أشوفك دلوقتي</div></div>
+  <div class="card" onclick="spark(this)"><img src="https://i.imgur.com/L2pQ8vM.jpg"><div class="caption">Soon this will be us every day</div><div class="arabic">قريب جدا هكون جنبك كل يوم</div></div>
+</div>
+
+<div class="nav">
+  <a href="index.html">Back</a>
+  <a href="vows.html">My Vows →</a>
+</div>
+
+<script>
+function spark(el){
+  for(let i=0;i<20;i++){
+    const s=document.createElement('div');
+    s.innerText='Sparkles';
+    s.className='sparkle';
+    s.style.left=(event.clientX-el.getBoundingClientRect().left+Math.random()*100-50)+'px';
+    s.style.top=(event.clientY-el.getBoundingClientRect().top+Math.random()*100-50)+'px';
+    el.appendChild(s);
+    setTimeout(()=>s.remove(),1200);
+  }
+}
+</script>
+</body>
+</html>
